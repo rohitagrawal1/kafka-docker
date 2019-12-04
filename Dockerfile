@@ -34,7 +34,9 @@ RUN apk add --no-cache bash curl jq docker \
  && rm /tmp/* \
  && wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-${GLIBC_VERSION}.apk \
  && apk add --no-cache --allow-untrusted glibc-${GLIBC_VERSION}.apk \
- && rm glibc-${GLIBC_VERSION}.apk
+ && rm glibc-${GLIBC_VERSION}.apk \
+ && apk add openssh \
+ && apk add python
 
 COPY overrides /opt/overrides
 
